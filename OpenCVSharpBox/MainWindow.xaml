@@ -5,8 +5,7 @@
         xmlns:local="clr-namespace:OpenCVSharpBox"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         Title="MainWindow"
-        Width="525"
-        Height="350"
+        SizeToContent="WidthAndHeight"
         mc:Ignorable="d">
     <!--<local:ContoursView />-->
     <local:SURFView />

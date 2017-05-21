@@ -1,5 +1,6 @@
 ﻿namespace OpenCVSharpBox
 {
+    using System.Diagnostics;
     using System.Windows.Controls;
     using OpenCvSharp;
     using OpenCvSharp.Extensions;
@@ -13,9 +14,11 @@
 
             using (var image = new Mat("Images//3SquaresWB.bmp", ImreadModes.GrayScale))
             {
+                var sw = Stopwatch.StartNew();
                 using (var surf = SURF.Create(200))
                 {
                     var keyPoints = surf.Detect(image);
+                    this.Status.Text = $"{sw.ElapsedMilliseconds} ms";
                     using (var overLay = image.OverLay())
                     {
                         Cv2.DrawKeypoints(image, keyPoints, overLay);
