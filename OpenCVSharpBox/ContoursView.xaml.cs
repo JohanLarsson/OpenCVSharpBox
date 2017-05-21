@@ -9,13 +9,13 @@
         public ContoursView()
         {
             InitializeComponent();
-            using (var mat = new Mat("Images//3SquaresWB.bmp", ImreadModes.GrayScale))
+            using (var image = new Mat("Images//3SquaresWB.bmp", ImreadModes.GrayScale))
             {
-                var points = mat.FindContoursAsArray(RetrievalModes.External, ContourApproximationModes.ApproxSimple);
-                using (var result = new Mat(mat.Size(), MatType.CV_8UC4, new Scalar(0, 0, 0, 0)))
+                var points = image.FindContoursAsArray(RetrievalModes.External, ContourApproximationModes.ApproxSimple);
+                using (var overLay = image.OverLay())
                 {
-                    result.DrawContours(points, -1, new Scalar(0, 0, 255, 255), 2);
-                    this.Result.Source = result.ToBitmapSource();
+                    overLay.DrawContours(points, -1, Scalar4.Red, 2);
+                    this.Result.Source = overLay.ToBitmapSource();
                 }
             }
         }
