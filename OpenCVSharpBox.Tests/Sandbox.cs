@@ -5,11 +5,12 @@
     public class Sandbox
     {
         private static string ThreeSquaresBW = ImagePath("Images\\3SquaresBW.bmp");
+        private static string ThreeSquaresWB = ImagePath("Images\\3SquaresWB.bmp");
 
         [NUnit.Framework.Test]
         public void Test()
         {
-            using (var mat = new Mat(ThreeSquaresBW, ImreadModes.GrayScale))
+            using (var mat = new Mat(ThreeSquaresWB, ImreadModes.GrayScale))
             {
                 var points = mat.FindContoursAsArray(RetrievalModes.External, ContourApproximationModes.ApproxSimple);
                 using (var result = new Mat(300, 300, MatType.CV_8UC3, Scalar.White))
