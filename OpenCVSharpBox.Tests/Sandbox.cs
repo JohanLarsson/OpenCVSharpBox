@@ -1,6 +1,7 @@
 ﻿namespace OpenCVSharpBox.Tests
 {
     using OpenCvSharp;
+    using OpenCvSharp.XFeatures2D;
 
     public class Sandbox
     {
@@ -8,7 +9,7 @@
         private static string ThreeSquaresWB = ImagePath("Images\\3SquaresWB.bmp");
 
         [NUnit.Framework.Test]
-        public void Test()
+        public void FindContoursAsArray()
         {
             using (var mat = new Mat(ThreeSquaresWB, ImreadModes.GrayScale))
             {
@@ -17,6 +18,23 @@
                 {
                     result.DrawContours(points, -1, Scalar.Red, 2);
                     Window.ShowImages(new[] { mat, result }, new[] { "Original", "Result" });
+                }
+            }
+        }
+
+        [NUnit.Framework.Test]
+        public void SURFTest()
+        {
+            using (var mat = new Mat(ThreeSquaresWB, ImreadModes.GrayScale))
+            {
+                using (var surf = SURF.Create(200))
+                {
+                    var keyPoints = surf.Detect(mat);
+                    using (var result = new Mat(300, 300, MatType.CV_8UC3, Scalar.White))
+                    {
+                        Cv2.DrawKeypoints(mat, keyPoints, result);
+                        Window.ShowImages(new[] { mat, result }, new[] { "Original", "Result" });
+                    }
                 }
             }
         }
