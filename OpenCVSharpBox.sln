@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCVSharpBox", "OpenCVSharpBox\OpenCVSharpBox.csproj", "{AFD0DD67-6570-4427-AA7E-6C2FBAB2E6FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCVSharpBox.Tests", "OpenCVSharpBox.Tests\OpenCVSharpBox.Tests.csproj", "{9E725B36-5373-4A7A-B21E-E02331E994BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AFD0DD67-6570-4427-AA7E-6C2FBAB2E6FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AFD0DD67-6570-4427-AA7E-6C2FBAB2E6FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AFD0DD67-6570-4427-AA7E-6C2FBAB2E6FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AFD0DD67-6570-4427-AA7E-6C2FBAB2E6FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E725B36-5373-4A7A-B21E-E02331E994BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E725B36-5373-4A7A-B21E-E02331E994BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E725B36-5373-4A7A-B21E-E02331E994BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E725B36-5373-4A7A-B21E-E02331E994BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
