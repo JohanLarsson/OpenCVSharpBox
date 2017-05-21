@@ -4,24 +4,27 @@
     using System.Windows.Controls;
     using OpenCvSharp;
     using OpenCvSharp.Extensions;
-    using OpenCvSharp.XFeatures2D;
 
-    public partial class SURFView : UserControl
+    public partial class CascadeClassifierView : UserControl
     {
-        public SURFView()
+        public CascadeClassifierView()
         {
             this.InitializeComponent();
 
-            using (var image = new Mat("Images//3SquaresWB.bmp", ImreadModes.GrayScale))
+            using (var image = new Mat("Images//3SquaresBW.bmp", ImreadModes.GrayScale))
             {
                 var sw = Stopwatch.StartNew();
-                using (var surf = SURF.Create(200))
+                using (var classifier = new CascadeClassifier("data\\cascade.xml"))
                 {
-                    var keyPoints = surf.Detect(image);
+                    var matches = classifier.DetectMultiScale(image);
                     this.Status.Text = $"{sw.ElapsedMilliseconds} ms";
                     using (var overLay = image.OverLay())
                     {
-                        Cv2.DrawKeypoints(image, keyPoints, overLay);
+                        foreach (var match in matches)
+                        {
+                            Cv2.Rectangle(overLay, match, Scalar4.Red);
+                        }
+
                         this.Result.Source = overLay.ToBitmapSource();
                     }
                 }

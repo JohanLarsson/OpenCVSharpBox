@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Threading.Tasks;
-using System.Windows;
-
-namespace OpenCVSharpBox
+﻿namespace OpenCVSharpBox
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+    using System.Windows;
+
     public partial class App : Application
     {
     }

@@ -8,8 +8,8 @@
     {
         public ContoursView()
         {
-            InitializeComponent();
-            using (var image = new Mat("Images//3SquaresWB.bmp", ImreadModes.GrayScale))
+            this.InitializeComponent();
+            using (var image = new Mat("Images\\3SquaresWB.bmp", ImreadModes.GrayScale))
             {
                 var points = image.FindContoursAsArray(RetrievalModes.External, ContourApproximationModes.ApproxSimple);
                 using (var overLay = image.OverLay())

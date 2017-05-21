@@ -8,5 +8,6 @@
         SizeToContent="WidthAndHeight"
         mc:Ignorable="d">
     <!--<local:ContoursView />-->
-    <local:SURFView />
+    <!--<local:SURFView />-->
+    <local:CascadeClassifierView />
 </Window>

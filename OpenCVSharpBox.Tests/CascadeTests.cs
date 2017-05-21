@@ -26,9 +26,9 @@ namespace OpenCVSharpBox.Tests
         {
             using (var mat = new Mat(ThreeSquaresWB, ImreadModes.GrayScale))
             {
-                using (var classifier = new CascadeClassifier(FullFileName("Squares.xml")))
+                using (var classifier = new CascadeClassifier(FullFileName("data\\cascade.xml")))
                 {
-                    var matches = classifier.DetectMultiScale(new Mat(ThreeSquaresWB, ImreadModes.Unchanged));
+                    var matches = classifier.DetectMultiScale(mat);
                     Assert.AreEqual(3, matches.Length);
                 }
             }
@@ -64,6 +64,7 @@ namespace OpenCVSharpBox.Tests
                 }
             }
 
+            Directory.CreateDirectory(FullFileName("Data//data"));
             using (var process = Process.Start(new ProcessStartInfo
             {
                 FileName = Path.Combine(OpenCvDir, "opencv_traincascade.exe"),
