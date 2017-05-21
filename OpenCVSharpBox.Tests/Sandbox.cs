@@ -1,6 +1,5 @@
 ﻿namespace OpenCVSharpBox.Tests
 {
-    using NUnit.Framework.Internal;
     using OpenCvSharp;
     using OpenCvSharp.XFeatures2D;
 
