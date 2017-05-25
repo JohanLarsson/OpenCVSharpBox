@@ -6,13 +6,56 @@
              d:DesignHeight="300"
              d:DesignWidth="300"
              mc:Ignorable="d">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </UserControl.Resources>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Image x:Name="Template" Source="Images/Circle_Template.bmp" />
-        <Image x:Name="Image" Grid.Column="1" Source="Images/Circle.bmp" />
-        <Image x:Name="Result" Grid.Column="1" />
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Image x:Name="Template" Source="Images/Circle_Template.bmp" />
+            <Image x:Name="Image"
+                   Grid.Column="1"
+                   Opacity="0.5"
+                   Source="Images/Circle.bmp"
+                   Visibility="{Binding ElementName=ShowImage,
+                                        Path=IsChecked,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
+            <Image x:Name="Result"
+                   Grid.Column="1"
+                   Opacity="0.5"
+                   Visibility="{Binding ElementName=ShowResults,
+                                        Path=IsChecked,
+                                        Converter={StaticResource BooleanToVisibilityConverter}}" />
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <CheckBox x:Name="ShowResults"
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      Content="ShowResults"
+                      IsChecked="True" />
+            <CheckBox x:Name="ShowImage"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      Content="ShowImage"
+                      IsChecked="True" />
+        </Grid>
     </Grid>
 </UserControl>
