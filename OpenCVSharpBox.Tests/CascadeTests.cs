@@ -20,11 +20,26 @@ namespace OpenCVSharpBox.Tests
         // c:\opencv\opencv_world320d.dll
 
         private static string ThreeSquaresWB = FullFileName("Images\\3SquaresWB.bmp");
+        private static string ThreeSquaresBW = FullFileName("Images\\3SquaresBW.bmp");
 
         [NUnit.Framework.Test]
-        public void Classifier()
+        public void ClassifierWB()
         {
-            using (var mat = new Mat(ThreeSquaresWB, ImreadModes.GrayScale))
+            using (var mat = new Mat(ThreeSquaresWB, ImreadModes.Unchanged))
+            {
+                using (var classifier = new CascadeClassifier(FullFileName("data\\cascade.xml")))
+                {
+                    var matches = classifier.DetectMultiScale(mat);
+                    Assert.AreEqual(3, matches.Length);
+                }
+            }
+        }
+
+
+        [NUnit.Framework.Test]
+        public void ClassifierBW()
+        {
+            using (var mat = new Mat(ThreeSquaresBW, ImreadModes.Unchanged))
             {
                 using (var classifier = new CascadeClassifier(FullFileName("data\\cascade.xml")))
                 {
@@ -69,7 +84,7 @@ namespace OpenCVSharpBox.Tests
             {
                 FileName = Path.Combine(OpenCvDir, "opencv_traincascade.exe"),
                 WorkingDirectory = FullFileName("Data"),
-                Arguments = $"-data data -vec squares.vec -bg bg.txt -numPos 40 -numNeg 600 -w 24 -h 24"
+                Arguments = $"-data data -vec squares.vec -bg bg.txt -numPos 40 -numNeg 600 -w 24 -h 24 -numStages 20"
             }))
             {
                 process.WaitForExit();

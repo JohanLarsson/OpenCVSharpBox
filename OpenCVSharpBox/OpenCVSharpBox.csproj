@@ -67,6 +67,9 @@
     <Compile Include="CascadeClassifierView.xaml.cs">
       <DependentUpon>CascadeClassifierView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MatchTemplateView.xaml.cs">
+      <DependentUpon>MatchTemplateView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MatExt.cs" />
     <Compile Include="Scalar4.cs" />
     <Compile Include="SURFView.xaml.cs">
@@ -95,6 +98,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MatchTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SURFView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -133,6 +140,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\3SquaresWB.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Circle.bmp">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\Circle_Template.bmp">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

@@ -9,5 +9,6 @@
         mc:Ignorable="d">
     <!--<local:ContoursView />-->
     <!--<local:SURFView />-->
-    <local:CascadeClassifierView />
+    <!--<local:CascadeClassifierView />-->
+    <local:MatchTemplateView />
 </Window>
