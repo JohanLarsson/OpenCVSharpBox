@@ -37,11 +37,16 @@
                                     {
                                         using (var dstPoints = InputArray.Create(goodMatches.Select(m => imageKeyPoints[m.QueryIdx].Pt)))
                                         {
-                                            using (var homo = Cv2.FindHomography(srcPoints, dstPoints, HomographyMethods.Ransac))
+                                            using (var homo = Cv2.FindHomography(srcPoints, dstPoints, HomographyMethods.Rho))
                                             {
+                                                ////using (var overlay = image.Overlay())
+                                                ////{
+                                                ////    DrawBox(template, homo, overlay);
+                                                ////    this.Result.Source = overlay.ToBitmapSource();
+                                                ////}
+
                                                 using (var tmp = image.Overlay())
                                                 {
-                                                    //DrawBox(template, homo, overLay);
                                                     Cv2.BitwiseNot(template, template);
                                                     Cv2.WarpPerspective(template, tmp, homo, tmp.Size());
                                                     using (var overlay = tmp.Overlay())
@@ -73,7 +78,15 @@
 
         private static void DrawBox(Mat template, Mat homo, Mat overLay)
         {
-            var corners = Cv2.PerspectiveTransform(template.Corners(), homo);
+           var boxCorners = new[]
+            {
+                new Point2f(0, 0),
+                new Point2f(0, template.Rows),
+                new Point2f(template.Cols, template.Rows),
+                new Point2f(template.Cols, 0),
+            };
+
+            var corners = Cv2.PerspectiveTransform(boxCorners, homo);
             Cv2.Line(overLay, corners[0], corners[1], Scalar4.Red);
             Cv2.Line(overLay, corners[1], corners[2], Scalar4.Red);
             Cv2.Line(overLay, corners[2], corners[3], Scalar4.Red);
