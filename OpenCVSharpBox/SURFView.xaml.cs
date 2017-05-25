@@ -19,7 +19,7 @@
                 {
                     var keyPoints = surf.Detect(image);
                     this.Status.Text = $"{sw.ElapsedMilliseconds} ms";
-                    using (var overLay = image.OverLay())
+                    using (var overLay = image.Overlay())
                     {
                         Cv2.DrawKeypoints(image, keyPoints, overLay);
                         this.Result.Source = overLay.ToBitmapSource();

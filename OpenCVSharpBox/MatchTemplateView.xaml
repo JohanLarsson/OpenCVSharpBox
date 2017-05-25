@@ -24,14 +24,12 @@
             <Image x:Name="Template" Source="Images/Circle_Template.bmp" />
             <Image x:Name="Image"
                    Grid.Column="1"
-                   Opacity="0.5"
                    Source="Images/Circle.bmp"
                    Visibility="{Binding ElementName=ShowImage,
                                         Path=IsChecked,
                                         Converter={StaticResource BooleanToVisibilityConverter}}" />
             <Image x:Name="Result"
                    Grid.Column="1"
-                   Opacity="0.5"
                    Visibility="{Binding ElementName=ShowResults,
                                         Path=IsChecked,
                                         Converter={StaticResource BooleanToVisibilityConverter}}" />

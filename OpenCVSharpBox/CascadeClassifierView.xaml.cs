@@ -18,7 +18,7 @@
                 {
                     var matches = classifier.DetectMultiScale(image);
                     this.Status.Text = $"{sw.ElapsedMilliseconds} ms";
-                    using (var overLay = image.OverLay())
+                    using (var overLay = image.Overlay())
                     {
                         foreach (var match in matches)
                         {

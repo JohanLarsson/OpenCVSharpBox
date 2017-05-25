@@ -12,7 +12,7 @@
             using (var image = new Mat("Images\\3SquaresWB.bmp", ImreadModes.GrayScale))
             {
                 var points = image.FindContoursAsArray(RetrievalModes.External, ContourApproximationModes.ApproxSimple);
-                using (var overLay = image.OverLay())
+                using (var overLay = image.Overlay())
                 {
                     overLay.DrawContours(points, -1, Scalar4.Red, 2);
                     this.Result.Source = overLay.ToBitmapSource();
